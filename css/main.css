@@ -1,4 +1,19 @@
 /* You'll probably want to add some styles here */
-#container {
-	height:800px;
+body {
+	background-color: gray;
+}
+
+
+#map {
+	margin-top: 50px;
+	height:500px;
+}
+
+#hoverTable {
+	margin-top: 50px;
+	background-color: #D87E28;
+}
+
+thead {
+	background-color: #dbdce3;
 }
