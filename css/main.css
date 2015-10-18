@@ -17,3 +17,10 @@ body {
 thead {
 	background-color: #dbdce3;
 }
+
+#alignmentM {
+	text-align: center;
+}
+#alignmentF {
+	text-align: center;
+}

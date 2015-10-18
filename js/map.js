@@ -35,22 +35,22 @@ var customBuild = function(data, map) {
 	var armedFemale = 0;
 	var unarmedFemale = 0;
 	for(var i = 0; i < data.length; i++) {
-		if (data[i]["Hit or Killed"] == "Killed") {
+		if (data[i]["Hit or Killed?"] === "Killed") {               
 			var circle = new L.circleMarker([data[i].lat, data[i].lng], 3, {
-				color: 'red'
+				fillColor: 'red',
 			});
 			circle.addTo(victimKilled);
 		}
 		else {
 			var circle = new L.circleMarker([data[i].lat, data[i].lng], 1, {
-				color: 'black'
+				color: '#000000'
 			});
 			circle.addTo(victimHit);
 		}
 		
 		circle.bindPopup(data[i]["Summary"]);
 		
-		if (data[i]["Armed or Unarmed"] == "Armed")  { 
+		if (data[i]["Armed or Unarmed?"] == "Armed")  { 
 			if (data[i]["Victim's Gender"] == "Male") {
 				armedMale += 1;
 			}
@@ -67,11 +67,16 @@ var customBuild = function(data, map) {
 			}	
 		}
 	};
+	document.getElementById("armedMale").innerHTML = armedMale;
+	document.getElementById("armedFemale").innerHTML = armedFemale;
+	document.getElementById("unarmedMale").innerHTML = unarmedMale;
+	document.getElementById("unarmedFemale").innerHTML = unarmedFemale;
+
 	victimKilled.addTo(map);
 	victimHit.addTo(map);
 	var layers = {
 		"Killed Victim": victimKilled,
-		"Hit Victim": victimHit
+		"Hit/Unspecified Victim": victimHit
 	};
 	
 	L.control.layers(null, layers).addTo(map);
