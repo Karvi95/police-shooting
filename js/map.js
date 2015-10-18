@@ -49,7 +49,7 @@ var customBuild = function(data, map) {
 				weight: 3,
 				opacity: 0.7,
 				color: '#FFFFFF',
-				fillColor: '#000000'
+				fillColor: '#FFFFFF'
 			});
 			circle.setRadius(3);
 			circle.addTo(victimHit);

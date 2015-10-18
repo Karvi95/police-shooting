@@ -1,23 +1,48 @@
 /* You'll probably want to add some styles here */
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,100italic,100);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300italic,300);
+
 body {
 	background-color: #151515;
 	border-radius: 5px;
 }
 
+h1, h4 {
+	background-color: #151515;
+	font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;      
+	font-weight: 300;
+	font-style: bold;
+	font-variant: small-caps;
+	text-align: center;
+	color: white;
+}
+
+p {
+	font-family: Raleway, 'Helvetica Neue', Helvetica, sans-serif;      
+	font-weight: 100;
+	background-color: #151515;
+	font-style: italic;
+	text-align: center;
+	color: #babbbe;
+}
+
+#hyperlink {
+	text-decoration: none;
+}
 
 #map {
-	margin-top: 50px;
+	margin-top: 25px;
 	height:500px;
+}
+thead {
+	background-color: #dbdce3;
 }
 
 #hoverTable {
 	margin-top: 50px;
-	background-color: #D87E28;
+	background-color: #2EFEF7;
 }
 
-thead {
-	background-color: #dbdce3;
-}
 
 #alignmentM {
 	text-align: center;
