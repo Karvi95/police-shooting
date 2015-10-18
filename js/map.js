@@ -3,7 +3,7 @@ var drawMap = function() {
 // Create map and set view
 	var map = L.map('map').setView([40, -100], 5)
 // Create a tile layer variable using the appropriate url
-	var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	var layer = L.tileLayer('https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}.png256?access_token=pk.eyJ1Ijoia2Fydmk5MCIsImEiOiJjaWZ3eDNuMjczaDdpdXVtMnM0bzdhc2ZpIn0.k_BQcrzGdY1Qn1SNoC5QeA', {
 	}).addTo(map);
 // Execute your function to get data
 	getData(map)
@@ -36,15 +36,22 @@ var customBuild = function(data, map) {
 	var unarmedFemale = 0;
 	for(var i = 0; i < data.length; i++) {
 		if (data[i]["Hit or Killed?"] === "Killed") {               
-			var circle = new L.circleMarker([data[i].lat, data[i].lng], 3, {
-				fillColor: 'red',
+			var circle = new L.circleMarker([data[i].lat, data[i].lng], {
+				color: '#2EFEF7',
+				fillColor: '#2EFEF7'
 			});
+			circle.setRadius(9);
 			circle.addTo(victimKilled);
 		}
 		else {
-			var circle = new L.circleMarker([data[i].lat, data[i].lng], 1, {
-				color: '#000000'
+			var circle = new L.circleMarker([data[i].lat, data[i].lng], {
+				stroke: true,
+				weight: 3,
+				opacity: 0.7,
+				color: '#FFFFFF',
+				fillColor: '#000000'
 			});
+			circle.setRadius(3);
 			circle.addTo(victimHit);
 		}
 		
@@ -74,6 +81,7 @@ var customBuild = function(data, map) {
 
 	victimKilled.addTo(map);
 	victimHit.addTo(map);
+	
 	var layers = {
 		"Killed Victim": victimKilled,
 		"Hit/Unspecified Victim": victimHit
