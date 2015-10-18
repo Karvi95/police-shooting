@@ -36,11 +36,15 @@ var customBuild = function(data, map) {
 	var unarmedFemale = 0;
 	for(var i = 0; i < data.length; i++) {
 		if (data[i]["Hit or Killed"] == "Killed") {
-			var circle = new L.circleMarker([data[i].lat, data[i].lng], 'red');
+			var circle = new L.circleMarker([data[i].lat, data[i].lng], 3, {
+				color: 'red'
+			});
 			circle.addTo(victimKilled);
 		}
 		else {
-			var circle = new L.circleMarker([data[i].lat, data[i].lng], 'black');	
+			var circle = new L.circleMarker([data[i].lat, data[i].lng], 1, {
+				color: 'black'
+			});
 			circle.addTo(victimHit);
 		}
 		
